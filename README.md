@@ -2,6 +2,10 @@
     <img src="static/header.png" alt="Bees+"/>
 </p>
 
+![Java](https://img.shields.io/badge/Java-8%2B-blue)
+![Spigot Downloads](https://img.shields.io/spiget/downloads/77224)
+[![CodeFactor](https://www.codefactor.io/repository/github/tomasff/beesplus/badge)](https://www.codefactor.io/repository/github/tomasff/beesplus)
+
 A Spigot (Minecraft server software) plugin that displays useful bee-related information.
 
 ## Compatibiliy
