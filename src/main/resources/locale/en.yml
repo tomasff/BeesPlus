@@ -1,0 +1,79 @@
+####################
+# Yes or no
+####################
+text_yes: "&aYes"
+text_no: "&cNo"
+
+###################
+# Beehive GUI
+###################
+beehive_info_gui_title: "&8Beehive Info"
+
+beehive_info_gui_honey_capacity: "&fHoney Capacity"
+
+beehive_info_gui_honey_capacity_desc: "&aCapacity: &7%current%/%maximum%"
+
+beehive_info_gui_bee_capacity: "&fBee Capacity"
+
+beehive_info_gui_bee_capacity_desc: "&aCapacity: &7%current%/%maximum% bees"
+
+beehive_info_gui_sedated: "&aSedated"
+beehive_info_gui_not_sedated: "&cNot sedated"
+
+beehive_info_gui_flower: "&fFlower"
+
+# Use || to a create a new line
+beehive_info_gui_no_target_flower_desc: "&aThis hive doesn't||&ahave a target flower!"
+
+honey_low: "Low"
+honey_medium: "Medium"
+honey_high: "High"
+honey_very_high: "Very High"
+
+###################
+# Bee GUI
+###################
+bee_info_gui_title: "&8Bee Info"
+
+bee_info_gui_age: "&fAge"
+bee_info_gui_age_adult: "&aAdult"
+bee_info_gui_age_baby: "&aBaby"
+
+bee_info_gui_anger: "&fAnger"
+
+# Use %level% as a placeholder for the bee's anger level
+bee_info_gui_anger_level_desc: "&aAnger level: &7%level%"
+
+bee_info_gui_hive_location: "&fHive Location"
+
+# Use || to a create a new line
+bee_info_gui_no_hive_desc: "&aThis bee doesn't||&ahave a hive!"
+
+bee_info_gui_ride: "&fRide"
+bee_info_gui_ride_no_permission: "&cYou don't have permission to ride bees!"
+bee_info_gui_ride_angry: "&cYou can't ride angry bees!"
+bee_info_gui_ride_already: "&cSomeone else is already riding this bee!"
+bee_info_gui_ride_too_far: "&cYou're too far away to ride this bee!"
+
+bee_info_gui_has_stung: "&fHas stung?"
+bee_info_gui_has_nectar: "&fHas nectar?"
+
+bee_info_gui_health: "&fHealth"
+
+# Use %health% to represent the bee's health
+bee_info_gui_health_desc: "&aHealth: &7%health% ❤"
+
+###################
+# Riding a bee title
+# Use %name% as a placeholder for the player's name
+###################
+ride_bee_title: "&6You're now riding"
+ride_bee_subtitle: "&6a bee &8%name%&6!"
+
+###################
+# Protection suit name
+###################
+bee_protection_helmet: "&6Bee Protection Helmet"
+bee_protection_chestplate: "&6Bee Protection Chestplate"
+bee_protection_leggings: "&6Bee Protection Leggings"
+bee_protection_boots: "&6Bee Protection Boots"

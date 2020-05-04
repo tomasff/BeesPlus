@@ -1,0 +1,26 @@
+# Language Settings
+#
+# Available locale: en, pt
+#
+# If you want to create your own, the file name must match the locale name.
+# Example:
+# - Create es.yml in locale/
+# - Set locale: es
+#
+locale: en
+
+# Protection suit settings
+#
+# enabled: true or false
+# reduction: A 0.5 reduction is a 50% reduction in damage. 0.6 is 60% and so on...
+#
+beeprotectionsuit:
+  enabled: true
+  reduction: 0.50
+
+# Bee healing settings
+#
+# removeanger: remove anger from bees when they are healed?
+#
+healing:
+  removeanger: true

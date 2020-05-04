@@ -1,0 +1,15 @@
+name: BeesPlus
+author: Attlantiz
+version: ${project.version}
+main: com.tomff.beesplus.BeesPlus
+api-version: 1.15
+permissions:
+  beesplus.bee.view:
+    default: op
+  beesplus.bee.heal:
+    default: op
+  beesplus.bee.ride:
+    default: op
+  beesplus.beehive.view:
+    default: op
+

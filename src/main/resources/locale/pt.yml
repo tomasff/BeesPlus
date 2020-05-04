@@ -1,0 +1,79 @@
+####################
+# Yes or no
+####################
+text_yes: "&aSim"
+text_no: "&cNão"
+
+###################
+# Beehive GUI
+###################
+beehive_info_gui_title: "&8Informação da colmeia"
+
+beehive_info_gui_honey_capacity: "&fCapacidade de mel"
+
+beehive_info_gui_honey_capacity_desc: "&aCapacidade: &7%current%/%maximum%"
+
+beehive_info_gui_bee_capacity: "&fCapacidade de abelhas"
+
+beehive_info_gui_bee_capacity_desc: "&aCapacidade: &7%current%/%maximum% abelhas"
+
+beehive_info_gui_sedated: "&aSedada"
+beehive_info_gui_not_sedated: "&cNão sedada"
+
+beehive_info_gui_flower: "&fFlor"
+
+# Use || to switch to a create a new line
+beehive_info_gui_no_target_flower_desc: "&aEsta colmeia não||&atem uma flor!"
+
+honey_low: "Baixo"
+honey_medium: "Médio"
+honey_high: "Alto"
+honey_very_high: "Muito alto"
+
+###################
+# Bee GUI
+###################
+bee_info_gui_title: "&8Informação da abelha"
+
+bee_info_gui_age: "&fIdade"
+bee_info_gui_age_adult: "&aAdulta"
+bee_info_gui_age_baby: "&aBébé"
+
+bee_info_gui_anger: "&fRaiva"
+
+# Use %level% as a placeholder for the bee's anger level
+bee_info_gui_anger_level_desc: "&aNível de raiva: &7%level%"
+
+bee_info_gui_hive_location: "&fLocalização da colmeia"
+
+# Use || to a create a new line
+bee_info_gui_no_hive_desc: "&aEsta abelha não||&atem uma colmeia!"
+
+bee_info_gui_ride: "&fMontar"
+bee_info_gui_ride_no_permission: "&cNão tens permissão para montar abelhas!"
+bee_info_gui_ride_angry: "&cNão podes montar abelhas irritadas!"
+bee_info_gui_ride_already: "&cAlguem já está a montar esta abelha!"
+bee_info_gui_ride_too_far: "&cEstá muito longe para montar a abelha!"
+
+bee_info_gui_has_stung: "&fJá picou?"
+bee_info_gui_has_nectar: "&fTem nectar?"
+
+bee_info_gui_health: "&fVida"
+
+# Use %health% to represent the bee's health
+bee_info_gui_health_desc: "&aVida: &7%health% ❤"
+
+###################
+# Riding a bee title
+# Use %name% as a placeholder for the player's name
+###################
+ride_bee_title: "&6Estás a montar"
+ride_bee_subtitle: "&6uma abelha &8%name%&6!"
+
+###################
+# Protection suit name
+###################
+bee_protection_helmet: "&6Proteção contra abelhas"
+bee_protection_chestplate: "&6Proteção contra abelhas"
+bee_protection_leggings: "&6Proteção contra abelhas"
+bee_protection_boots: "&6Proteção contra abelhas"
