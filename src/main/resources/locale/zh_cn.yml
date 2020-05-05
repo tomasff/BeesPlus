@@ -1,0 +1,85 @@
+####################
+# Simplified Chinese translation
+# Provided by:
+# - crazy223
+####################
+
+####################
+# Yes or no
+####################
+text_yes: "&a是"
+text_no: "&c不是"
+
+###################
+# Beehive GUI
+###################
+beehive_info_gui_title: "&8蜂巢信息"
+
+beehive_info_gui_honey_capacity: "&f蜂蜜容量"
+
+beehive_info_gui_honey_capacity_desc: "&a容量: &7%current%/%maximum%"
+
+beehive_info_gui_bee_capacity: "&f蜜蜂容量"
+
+beehive_info_gui_bee_capacity_desc: "&a容量: &7%current%/%maximum% 蜜蜂"
+
+beehive_info_gui_sedated: "&a蜂蜜"
+beehive_info_gui_not_sedated: "&c没有蜂蜜"
+
+beehive_info_gui_flower: "&f花"
+
+# Use || to a create a new line
+beehive_info_gui_no_target_flower_desc: "&a该配置单元没有||&a拥有目标花朵！"
+
+honey_low: "低级"
+honey_medium: "方法"
+honey_high: "高级"
+honey_very_high: "最高级"
+
+###################
+# Bee GUI
+###################
+bee_info_gui_title: "&8蜜蜂信息"
+
+bee_info_gui_age: "年龄"
+bee_info_gui_age_adult: "&a成人"
+bee_info_gui_age_baby: "&a宝宝"
+
+bee_info_gui_anger: "&f愤怒"
+
+# Use %level% as a placeholder for the bee's anger level
+bee_info_gui_anger_level_desc: "&a愤怒等级: &7%level%"
+
+bee_info_gui_hive_location: "&f蜂巢位置"
+
+# Use || to a create a new line
+bee_info_gui_no_hive_desc: "&a只蜜蜂没有||&a拥有蜂巢！"
+
+bee_info_gui_ride: "&f骑"
+bee_info_gui_ride_no_permission: "&c您无权骑蜜蜂！"
+bee_info_gui_ride_angry: "&c你不能骑愤怒的蜜蜂!"
+bee_info_gui_ride_already: "&c有人已经骑这只蜜蜂!"
+bee_info_gui_ride_too_far: "&c你太遥远了，无法骑这只蜜蜂!"
+
+bee_info_gui_has_stung: "&f拥有了?"
+bee_info_gui_has_nectar: "&f有花蜜?"
+
+bee_info_gui_health: "&f生命值"
+
+# Use %health% to represent the bee's health
+bee_info_gui_health_desc: "&a生命值: &7%health% ❤"
+
+###################
+# Riding a bee title
+# Use %name% as a placeholder for the player's name
+###################
+ride_bee_title: "&6你现在骑"
+ride_bee_subtitle: "&6一只蜜蜂 &8%name%&6!"
+
+###################
+# Protection suit name
+###################
+bee_protection_helmet: "&6防蜂头盔"
+bee_protection_chestplate: "&6蜜蜂保护胸甲"
+bee_protection_leggings: "&6蜜蜂护腿"
+bee_protection_boots: "&6蜜蜂保护靴"
