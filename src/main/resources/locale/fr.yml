@@ -1,0 +1,85 @@
+####################
+# French translation
+# Provided by:
+# - PrtyBlk
+####################
+
+####################
+# Yes or no
+####################
+text_yes: "&aOui"
+text_no: "&cNon"
+
+###################
+# Beehive GUI
+###################
+beehive_info_gui_title: "&8Informations sur la Ruche"
+
+beehive_info_gui_honey_capacity: "&fCapacité de Miel"
+
+beehive_info_gui_honey_capacity_desc: "&aCapacité: &7%current%/%maximum%"
+
+beehive_info_gui_bee_capacity: "&fCapacité D'abeille"
+
+beehive_info_gui_bee_capacity_desc: "&aCapacité: &7%current%/%maximum% Abeilles"
+
+beehive_info_gui_sedated: "&aSous sédation"
+beehive_info_gui_not_sedated: "&cPas sous sédation"
+
+beehive_info_gui_flower: "&fFleur"
+
+# Use || to a create a new line
+beehive_info_gui_no_target_flower_desc: "&aCette ruche n'a pas||&a de fleur cible!"
+
+honey_low: "Basse"
+honey_medium: "Moyen"
+honey_high: "Élevé"
+honey_very_high: "Très Élevé"
+
+###################
+# Bee GUI
+###################
+bee_info_gui_title: "&8Informations sur les abeilles"
+
+bee_info_gui_age: "&fÂge"
+bee_info_gui_age_adult: "&aAdulte"
+bee_info_gui_age_baby: "&aBébé"
+
+bee_info_gui_anger: "&fColère"
+
+# Use %level% as a placeholder for the bee's anger level
+bee_info_gui_anger_level_desc: "&aNiveau de Colère: &7%level%"
+
+bee_info_gui_hive_location: "&fPlacement de la ruche"
+
+# Use || to a create a new line
+bee_info_gui_no_hive_desc: "&aCette abeille n'a pas||&ade ruche!"
+
+bee_info_gui_ride: "&fBalade"
+bee_info_gui_ride_no_permission: "&cVous n'avez pas la permission de monter des abeilles!"
+bee_info_gui_ride_angry: "&cVous ne pouvez pas monter des abeilles en colère!"
+bee_info_gui_ride_already: "&cQuelqu'un d'autre a déjà monte sur cette abeille!"
+bee_info_gui_ride_too_far: "&cTu es trop loin pour monter cette abeille!"
+
+bee_info_gui_has_stung: "&fA piqué?"
+bee_info_gui_has_nectar: "&fA du nectar?"
+
+bee_info_gui_health: "&fSanté"
+
+# Use %health% to represent the bee's health
+bee_info_gui_health_desc: "&aSanté: &7%health% ❤"
+
+###################
+# Riding a bee title
+# Use %name% as a placeholder for the player's name
+###################
+ride_bee_title: "&6To conduit déjà"
+ride_bee_subtitle: "&6a abeille &8%name%&6!"
+
+###################
+# Protection suit name
+###################
+bee_protection_helmet: "&6Casque de Protection des Abeilles"
+bee_protection_chestplate: "&6Plastron de Protection des Abeilles"
+bee_protection_leggings: "&6Leggings de Protection des Abeilles"
+bee_protection_boots: "&6Bottes de protection des abeilles"
