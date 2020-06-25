@@ -4,16 +4,12 @@ import com.tomff.beesplus.core.gui.Gui;
 import com.tomff.beesplus.core.gui.Icon;
 import com.tomff.beesplus.core.items.ItemBuilder;
 import com.tomff.beesplus.localization.Localization;
-import net.minecraft.server.v1_15_R1.BlockPosition;
-import net.minecraft.server.v1_15_R1.NBTTagCompound;
-import net.minecraft.server.v1_15_R1.TileEntityBeehive;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Beehive;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.type.Campfire;
-import org.bukkit.craftbukkit.v1_15_R1.CraftWorld;
 import org.bukkit.inventory.ItemStack;
 
 public class BeeHiveInfo extends Gui {
@@ -71,23 +67,11 @@ public class BeeHiveInfo extends Gui {
     }
 
     private int getBeehivePopulation(Beehive beehive) {
-        CraftWorld craftWorld = (CraftWorld) beehive.getWorld();
-        TileEntityBeehive beehiveTile = (TileEntityBeehive) craftWorld.getHandle().getTileEntity(new BlockPosition(beehive.getX(), beehive.getY(), beehive.getZ()));
-        return beehiveTile.j();
+        return beehive.getEntityCount();
     }
 
     private int getBeehiveMaxPopulation(Beehive beehive) {
-        CraftWorld craftWorld = (CraftWorld) beehive.getWorld();
-        TileEntityBeehive beehiveTile = (TileEntityBeehive) craftWorld.getHandle().getTileEntity(new BlockPosition(beehive.getX(), beehive.getY(), beehive.getZ()));
-
-        if (beehiveTile == null) {
-            return 3;
-        }
-
-        NBTTagCompound nbt = new NBTTagCompound();
-        beehiveTile.save(nbt);
-
-        return nbt.getInt("Bukkit.MaxEntities");
+        return beehive.getMaxEntities();
     }
 
     @Override
