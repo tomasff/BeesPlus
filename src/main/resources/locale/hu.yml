@@ -1,0 +1,85 @@
+####################
+# Hungarian translation
+# Provided by:
+# - Victor75007
+####################
+
+####################
+# Igen vagy Nem
+####################
+text_yes: "&aIgen"
+text_no: "&cNem"
+
+###################
+# Méhkaptár GUI
+###################
+beehive_info_gui_title: "&8Méhkaptár info"
+
+beehive_info_gui_honey_capacity: "&fMéz kapacitás"
+
+beehive_info_gui_honey_capacity_desc: "&aKapacitás: &7%current%/%maximum%"
+
+beehive_info_gui_bee_capacity: "&fMéh kapacitás"
+
+beehive_info_gui_bee_capacity_desc: "&aKapacitás: &7%current%/%maximum% méh"
+
+beehive_info_gui_sedated: "&aNyugodt"
+beehive_info_gui_not_sedated: "&cNyugtalan"
+
+beehive_info_gui_flower: "&fVirág"
+
+# Használd a || jelzést, hogy új sort készíts
+beehive_info_gui_no_target_flower_desc: "&aEnnek a kaptárnak||&anincs célpont virágja!"
+
+honey_low: "Alacsony"
+honey_medium: "Közepes"
+honey_high: "Magas"
+honey_very_high: "Nagyon magas"
+
+###################
+# Méh GUI
+###################
+bee_info_gui_title: "&8Méh info"
+
+bee_info_gui_age: "&fKora"
+bee_info_gui_age_adult: "&aFelnőtt"
+bee_info_gui_age_baby: "&aBaba"
+
+bee_info_gui_anger: "&fDüh"
+
+# Használd a %level% helyörzőt a méh düh-szintjének jelzéséhez.
+bee_info_gui_anger_level_desc: "&aDüh szint: &7%level%"
+
+bee_info_gui_hive_location: "&fKaptár helyszín"
+
+# Használd a || jelzést, hogy új sort készíts
+bee_info_gui_no_hive_desc: "&aEnnek a méhnek||&anincs kaptárja!"
+
+bee_info_gui_ride: "&fLovaglás"
+bee_info_gui_ride_no_permission: "&cNincs jogod, hogy lovagolj a méhecskén!"
+bee_info_gui_ride_angry: "&cNem tudsz lovagolni dühös méhecskén!"
+bee_info_gui_ride_already: "&cValaki már lovagol ezen a méhen!"
+bee_info_gui_ride_too_far: "&cTúl messze vagy a méhtől, hogy lovagolj rajta!"
+
+bee_info_gui_has_stung: "&fVan ellenfele?"
+bee_info_gui_has_nectar: "&fVan nektárja?"
+
+bee_info_gui_health: "&fÉlet"
+
+# használd a %health% helyőrzőt, hogy
+bee_info_gui_health_desc: "&aÉlet: &7%health% ❤"
+
+###################
+# Méh-lovaglás cím
+# Használd a %name% helyőrzőt a játékos nevéhez.
+###################
+ride_bee_title: "&6Most lovagolsz a"
+ride_bee_subtitle: "&6méhecskén &8%name%&6!"
+
+###################
+# Védelmi öltözet neve
+###################
+bee_protection_helmet: "&6Méh Védelmi Sisak"
+bee_protection_chestplate: "&6Méh Védelmi Mellvért"
+bee_protection_leggings: "&6Méh Védelmi Lábszárvédő"
+bee_protection_boots: "&6Méh Védelmi Csizma"
