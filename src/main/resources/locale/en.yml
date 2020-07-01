@@ -77,3 +77,14 @@ bee_protection_helmet: "&6Bee Protection Helmet"
 bee_protection_chestplate: "&6Bee Protection Chestplate"
 bee_protection_leggings: "&6Bee Protection Leggings"
 bee_protection_boots: "&6Bee Protection Boots"
+
+###################
+# Beehive upgrade item
+###################
+beehive_upgrade_item_name: "&6Beehive Upgrade"
+
+# Use || to a create a new line
+beehive_upgrade_item_lore: "&7Bee capacity: &a+3||&8(Right click to use)"
+
+beehive_upgrade_success: "&aBeehive upgraded! New population: &7%beesno%&a bees"
+beehive_upgrade_max: "&cError: This beehive has reached the maximum population allowed!"

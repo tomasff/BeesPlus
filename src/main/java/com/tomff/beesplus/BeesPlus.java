@@ -2,10 +2,7 @@ package com.tomff.beesplus;
 
 import com.tomff.beesplus.handlers.DamageHandler;
 import com.tomff.beesplus.handlers.RightClickHandler;
-import com.tomff.beesplus.items.BeeProtectionBoots;
-import com.tomff.beesplus.items.BeeProtectionChestplate;
-import com.tomff.beesplus.items.BeeProtectionHelmet;
-import com.tomff.beesplus.items.BeeProtectionLeggings;
+import com.tomff.beesplus.items.*;
 import com.tomff.beesplus.core.UpdateChecker;
 import com.tomff.beesplus.core.gui.GuiHandler;
 import com.tomff.beesplus.core.gui.GuiManager;
@@ -75,6 +72,11 @@ public class BeesPlus extends JavaPlugin {
     }
 
     private void registerItems() {
+        BeeHiveUpgrade beeHiveUpgrade = new BeeHiveUpgrade(this);
+
+        customItemManager.registerCustomItem("honey_upgrade", beeHiveUpgrade);
+        getServer().getPluginManager().registerEvents(beeHiveUpgrade, this);
+
         boolean isProtectionSuitEnabled = getConfig().getBoolean("beeprotectionsuit.enabled", true);
 
         if(isProtectionSuitEnabled) {
