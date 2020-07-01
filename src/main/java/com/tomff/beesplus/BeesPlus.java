@@ -73,8 +73,6 @@ public class BeesPlus extends JavaPlugin {
             customItemManager.registerCustomItem("protection_chestplate", new BeeProtectionChestplate());
             customItemManager.registerCustomItem("protection_helmet", new BeeProtectionHelmet());
 
-            customItemManager.registerRecipes();
-
             getServer().getPluginManager().registerEvents(new DamageHandler(this), this);
         }
 

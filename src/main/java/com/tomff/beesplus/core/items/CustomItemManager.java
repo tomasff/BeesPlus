@@ -24,16 +24,12 @@ public class CustomItemManager {
 
     public void registerCustomItem(String id, CustomItem customItem) {
         customItems.put(id, customItem);
-    }
 
-    public void registerRecipes() {
-        customItems.forEach((id, customItem) -> {
-            NamespacedKey namespacedKey = new NamespacedKey(beesPlus, id);
-            ShapedRecipe recipe = new ShapedRecipe(namespacedKey, customItem.getItem());
-            recipe.shape(customItem.getRecipe());
-            customItem.getIngredients().forEach(recipe::setIngredient);
+        NamespacedKey namespacedKey = new NamespacedKey(beesPlus, id);
+        ShapedRecipe recipe = new ShapedRecipe(namespacedKey, customItem.getResult());
+        recipe.shape(customItem.getRecipe());
+        customItem.getIngredients().forEach(recipe::setIngredient);
 
-            Bukkit.addRecipe(recipe);
-        });
+        Bukkit.addRecipe(recipe);
     }
 }
