@@ -52,14 +52,6 @@ public class BeeHiveInfo extends Gui {
         }
     }
 
-    private int getBeehivePopulation(Beehive beehive) {
-        return beehive.getEntityCount();
-    }
-
-    private int getBeehiveMaxPopulation(Beehive beehive) {
-        return beehive.getMaxEntities();
-    }
-
     @Override
     public void buildIcons() {
         org.bukkit.block.data.type.Beehive beehiveData = (org.bukkit.block.data.type.Beehive) beehive.getBlockData();
@@ -78,7 +70,7 @@ public class BeeHiveInfo extends Gui {
 
         ItemStack beeCapacity = new ItemBuilder(Material.BEE_NEST)
                 .setName(Localization.get(Localization.BEEHIVE_INFO_GUI_BEE_CAPACITY))
-                .setLore(Localization.get(Localization.BEEHIVE_INFO_GUI_BEE_CAPACITY_DESC, getBeehivePopulation(beehive), getBeehiveMaxPopulation(beehive)),
+                .setLore(Localization.get(Localization.BEEHIVE_INFO_GUI_BEE_CAPACITY_DESC, beehive.getEntityCount(), beehive.getMaxEntities()),
                         isSedated)
                 .build();
 
@@ -100,7 +92,8 @@ public class BeeHiveInfo extends Gui {
         Icon flowerIcon = new Icon(flower, null);
         setIcon(flowerIcon, 37);
 
-        HoneyLevelIndicators honeyLevelIndicator = HoneyLevelIndicators.getFromLevel(beehiveData.getHoneyLevel());
+        HoneyLevelIndicators honeyLevelIndicator = HoneyLevelIndicators.getFromLevel(beehiveData.getHoneyLevel(),
+                beehiveData.getMaximumHoneyLevel());
         setHoneyLevelSlots(honeyLevelIndicator);
 
         ItemStack filler = new ItemBuilder(Material.WHITE_STAINED_GLASS_PANE)

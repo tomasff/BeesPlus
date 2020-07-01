@@ -28,11 +28,16 @@ public enum HoneyLevelIndicators {
         this.slots = slots;
     }
 
-    public static HoneyLevelIndicators getFromLevel(int level) {
-        return Arrays.stream(values())
-                .filter((levelIndicator) -> levelIndicator.level == level)
-                .findFirst()
-                .orElse(VERY_HIGH);
+    public static HoneyLevelIndicators getFromLevel(int currentHoneyLvl, int maxHoneyLvl) {
+        float ratio = (float) currentHoneyLvl / (float) maxHoneyLvl;
+
+        if (ratio == 0) return EMPTY;
+        if (ratio <= 0.25) return LOW;
+        if (ratio <= 0.50) return MEDIUM;
+        if (ratio <= 0.75) return HIGH;
+        if (ratio <= 1) return VERY_HIGH;
+
+        return EMPTY;
     }
 
     public int getLevel() {
