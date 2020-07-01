@@ -40,10 +40,6 @@ public enum HoneyLevelIndicators {
         return EMPTY;
     }
 
-    public int getLevel() {
-        return level;
-    }
-
     public ChatColor getColor() {
         return color;
     }
