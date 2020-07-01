@@ -31,50 +31,18 @@ public class BeesPlus extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
 
-        String locale = getConfig().getString("locale", Locale.ENGLISH.toLanguageTag());
-
-        localizationWrapper = new LocalizationWrapper(this, "locale");
-
-        try {
-            YamlConfiguration localeYamlFile = localizationWrapper.getLocale(locale);
-            Localization.load(localeYamlFile);
-        } catch (IOException e) {
-            getLogger().severe("Invalid locale! Please choose a valid locale.");
-            disablePlugin();
-
-            return;
-        } catch (InvalidConfigurationException e) {
-            getLogger().severe(e.getMessage());
-            getLogger().severe("Locale file corrupted or malformed! Please check your locale file.");
-            disablePlugin();
-
-            return;
-        } catch (IllegalArgumentException e) {
-            getLogger().severe(e.getMessage());
-            getLogger().severe("Error in the locale file! Please check your locale file.");
-            getLogger().severe("Maybe caused by a typo");
-            disablePlugin();
-
-            return;
-        }
-
         guiManager = new GuiManager();
+        customItemManager = new CustomItemManager(this);
 
         getServer().getPluginManager().registerEvents(new GuiHandler(this), this);
         getServer().getPluginManager().registerEvents(new RightClickHandler(this), this);
 
-        boolean isProtectionSuitEnabled = getConfig().getBoolean("beeprotectionsuit.enabled", true);
-
-        if (isProtectionSuitEnabled) {
-            customItemManager = new CustomItemManager(this);
-
-            customItemManager.registerCustomItem("protection_boots", new BeeProtectionBoots());
-            customItemManager.registerCustomItem("protection_leggings", new BeeProtectionLeggings());
-            customItemManager.registerCustomItem("protection_chestplate", new BeeProtectionChestplate());
-            customItemManager.registerCustomItem("protection_helmet", new BeeProtectionHelmet());
-
-            getServer().getPluginManager().registerEvents(new DamageHandler(this), this);
+        if (!loadLocale()) {
+            getServer().getPluginManager().disablePlugin(this);
+            return;
         }
+
+        registerItems();
 
         Metrics metrics = new Metrics(this, 7065);
 
@@ -85,8 +53,38 @@ public class BeesPlus extends JavaPlugin {
         });
     }
 
-    private void disablePlugin() {
-        getServer().getPluginManager().disablePlugin(this);
+    private boolean loadLocale() {
+        String locale = getConfig().getString("locale", Locale.ENGLISH.toLanguageTag());
+        localizationWrapper = new LocalizationWrapper(this, "locale");
+
+        try {
+            YamlConfiguration localeYamlFile = localizationWrapper.getLocale(locale);
+            Localization.load(localeYamlFile);
+        } catch (IOException e) {
+            getLogger().severe("Invalid locale! Please choose a valid locale.");
+
+            return false;
+        } catch (InvalidConfigurationException | IllegalArgumentException e) {
+            getLogger().severe(e.getMessage());
+
+            getLogger().severe("Locale file corrupted or malformed! Please check your locale file.");
+            return false;
+        }
+
+        return true;
+    }
+
+    private void registerItems() {
+        boolean isProtectionSuitEnabled = getConfig().getBoolean("beeprotectionsuit.enabled", true);
+
+        if(isProtectionSuitEnabled) {
+            customItemManager.registerCustomItem("protection_boots", new BeeProtectionBoots());
+            customItemManager.registerCustomItem("protection_leggings", new BeeProtectionLeggings());
+            customItemManager.registerCustomItem("protection_chestplate", new BeeProtectionChestplate());
+            customItemManager.registerCustomItem("protection_helmet", new BeeProtectionHelmet());
+
+            getServer().getPluginManager().registerEvents(new DamageHandler(this), this);
+        }
     }
 
     public GuiManager getGuiManager() {
