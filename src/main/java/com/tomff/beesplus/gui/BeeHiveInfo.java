@@ -8,8 +8,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Beehive;
-import org.bukkit.block.Block;
-import org.bukkit.block.data.type.Campfire;
 import org.bukkit.inventory.ItemStack;
 
 public class BeeHiveInfo extends Gui {
@@ -54,18 +52,6 @@ public class BeeHiveInfo extends Gui {
         }
     }
 
-    private boolean isSedated(Location location) {
-        for (int i = 1; i <= 5; i++) {
-            Block block = location.subtract(0, 1, 0).getBlock();
-
-            if (block.getType() == Material.CAMPFIRE && ((Campfire) block.getBlockData()).isLit()) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     private int getBeehivePopulation(Beehive beehive) {
         return beehive.getEntityCount();
     }
@@ -87,7 +73,7 @@ public class BeeHiveInfo extends Gui {
         Icon honeyLevelIcon = new Icon(honeyLevel, null);
         setIcon(honeyLevelIcon, 10);
 
-        String isSedated = isSedated(beehive.getLocation()) ? Localization.get(Localization.BEEHIVE_INFO_GUI_SEDATED) :
+        String isSedated = beehive.isSedated() ? Localization.get(Localization.BEEHIVE_INFO_GUI_SEDATED) :
                                                                 Localization.get(Localization.BEEHIVE_INFO_GUI_NOT_SEDATED);
 
         ItemStack beeCapacity = new ItemBuilder(Material.BEE_NEST)
