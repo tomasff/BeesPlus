@@ -5,7 +5,7 @@ import com.tomff.beesplus.handlers.RightClickHandler;
 import com.tomff.beesplus.items.*;
 import com.tomff.beesplus.core.UpdateChecker;
 import com.tomff.beesplus.core.gui.GuiHandler;
-import com.tomff.beesplus.core.gui.GuiManager;
+import com.tomff.beesplus.core.gui.GuiViewTracker;
 import com.tomff.beesplus.core.items.CustomItemManager;
 import com.tomff.beesplus.localization.Localization;
 import com.tomff.beesplus.localization.LocalizationWrapper;
@@ -19,7 +19,7 @@ import java.util.Locale;
 
 public class BeesPlus extends JavaPlugin {
 
-    private GuiManager guiManager;
+    private GuiViewTracker guiViewTracker;
     private CustomItemManager customItemManager;
 
     private LocalizationWrapper localizationWrapper;
@@ -28,7 +28,7 @@ public class BeesPlus extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
 
-        guiManager = new GuiManager();
+        guiViewTracker = new GuiViewTracker();
         customItemManager = new CustomItemManager(this);
 
         getServer().getPluginManager().registerEvents(new GuiHandler(this), this);
@@ -48,6 +48,11 @@ public class BeesPlus extends JavaPlugin {
                 getLogger().info("A new update is available: BeesPlus " + version);
             }
         });
+    }
+
+    @Override
+    public void onDisable() {
+        guiViewTracker.clearViews();
     }
 
     private boolean loadLocale() {
@@ -89,8 +94,8 @@ public class BeesPlus extends JavaPlugin {
         }
     }
 
-    public GuiManager getGuiManager() {
-        return guiManager;
+    public GuiViewTracker getGuiViewTracker() {
+        return guiViewTracker;
     }
 
     public CustomItemManager getCustomItemManager() {
