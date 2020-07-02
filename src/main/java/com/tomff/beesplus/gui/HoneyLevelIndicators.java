@@ -4,8 +4,6 @@ import com.tomff.beesplus.localization.Localization;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 
-import java.util.Arrays;
-
 public enum HoneyLevelIndicators {
 
     EMPTY(0, Material.AIR, null, null, 0),
