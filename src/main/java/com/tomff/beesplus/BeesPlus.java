@@ -1,12 +1,15 @@
 package com.tomff.beesplus;
 
-import com.tomff.beesplus.handlers.DamageHandler;
-import com.tomff.beesplus.handlers.RightClickHandler;
-import com.tomff.beesplus.items.*;
 import com.tomff.beesplus.core.UpdateChecker;
 import com.tomff.beesplus.core.gui.GuiHandler;
 import com.tomff.beesplus.core.gui.GuiViewTracker;
 import com.tomff.beesplus.core.items.CustomItemManager;
+import com.tomff.beesplus.core.migrations.AddField;
+import com.tomff.beesplus.core.migrations.Migration;
+import com.tomff.beesplus.core.migrations.MigrationsExecutor;
+import com.tomff.beesplus.handlers.DamageHandler;
+import com.tomff.beesplus.handlers.RightClickHandler;
+import com.tomff.beesplus.items.*;
 import com.tomff.beesplus.localization.Localization;
 import com.tomff.beesplus.localization.LocalizationWrapper;
 import org.bstats.bukkit.Metrics;
@@ -26,6 +29,7 @@ public class BeesPlus extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        performMigrations();
         saveDefaultConfig();
 
         guiViewTracker = new GuiViewTracker();
@@ -74,6 +78,16 @@ public class BeesPlus extends JavaPlugin {
         }
 
         return true;
+    }
+
+    private void performMigrations() {
+        MigrationsExecutor migrationsExecutor = new MigrationsExecutor(this);
+
+        migrationsExecutor.addMigration(1, new Migration()
+                .add(new AddField("config.yml", "beehiveupgrade.maximumpopulation", 9))
+        );
+
+        migrationsExecutor.migrate();
     }
 
     private void registerItems() {
