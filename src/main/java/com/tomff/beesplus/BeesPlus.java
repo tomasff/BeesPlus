@@ -20,6 +20,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
 import java.util.Locale;
+import java.util.concurrent.Callable;
 
 public class BeesPlus extends JavaPlugin {
 
@@ -44,14 +45,20 @@ public class BeesPlus extends JavaPlugin {
         }
 
         registerItems();
-
-        Metrics metrics = new Metrics(this, 7065);
+        setupMetrics();
 
         new UpdateChecker(this, 77224).getVersion(version -> {
             if (!this.getDescription().getVersion().equalsIgnoreCase(version)) {
                 getLogger().info("A new update is available: BeesPlus " + version);
             }
         });
+    }
+
+    private void setupMetrics() {
+        Metrics metrics = new Metrics(this, 7065);
+
+        metrics.addCustomChart(new Metrics.SimplePie("language_used",
+                () -> getConfig().getString("locale", Locale.ENGLISH.toLanguageTag())));
     }
 
     @Override
