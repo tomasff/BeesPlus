@@ -12,4 +12,6 @@ permissions:
     default: op
   beesplus.beehive.view:
     default: op
+  beesplus.beehive.upgrade:
+    default: op
 

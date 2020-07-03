@@ -8,8 +8,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Beehive;
-import org.bukkit.block.Block;
-import org.bukkit.block.data.type.Campfire;
 import org.bukkit.inventory.ItemStack;
 
 public class BeeHiveInfo extends Gui {
@@ -54,26 +52,6 @@ public class BeeHiveInfo extends Gui {
         }
     }
 
-    private boolean isSedated(Location location) {
-        for (int i = 1; i <= 5; i++) {
-            Block block = location.subtract(0, 1, 0).getBlock();
-
-            if (block.getType() == Material.CAMPFIRE && ((Campfire) block.getBlockData()).isLit()) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private int getBeehivePopulation(Beehive beehive) {
-        return beehive.getEntityCount();
-    }
-
-    private int getBeehiveMaxPopulation(Beehive beehive) {
-        return beehive.getMaxEntities();
-    }
-
     @Override
     public void buildIcons() {
         org.bukkit.block.data.type.Beehive beehiveData = (org.bukkit.block.data.type.Beehive) beehive.getBlockData();
@@ -87,12 +65,12 @@ public class BeeHiveInfo extends Gui {
         Icon honeyLevelIcon = new Icon(honeyLevel, null);
         setIcon(honeyLevelIcon, 10);
 
-        String isSedated = isSedated(beehive.getLocation()) ? Localization.get(Localization.BEEHIVE_INFO_GUI_SEDATED) :
+        String isSedated = beehive.isSedated() ? Localization.get(Localization.BEEHIVE_INFO_GUI_SEDATED) :
                                                                 Localization.get(Localization.BEEHIVE_INFO_GUI_NOT_SEDATED);
 
         ItemStack beeCapacity = new ItemBuilder(Material.BEE_NEST)
                 .setName(Localization.get(Localization.BEEHIVE_INFO_GUI_BEE_CAPACITY))
-                .setLore(Localization.get(Localization.BEEHIVE_INFO_GUI_BEE_CAPACITY_DESC, getBeehivePopulation(beehive), getBeehiveMaxPopulation(beehive)),
+                .setLore(Localization.get(Localization.BEEHIVE_INFO_GUI_BEE_CAPACITY_DESC, beehive.getEntityCount(), beehive.getMaxEntities()),
                         isSedated)
                 .build();
 
@@ -114,7 +92,8 @@ public class BeeHiveInfo extends Gui {
         Icon flowerIcon = new Icon(flower, null);
         setIcon(flowerIcon, 37);
 
-        HoneyLevelIndicators honeyLevelIndicator = HoneyLevelIndicators.getFromLevel(beehiveData.getHoneyLevel());
+        HoneyLevelIndicators honeyLevelIndicator = HoneyLevelIndicators.getFromLevel(beehiveData.getHoneyLevel(),
+                beehiveData.getMaximumHoneyLevel());
         setHoneyLevelSlots(honeyLevelIndicator);
 
         ItemStack filler = new ItemBuilder(Material.WHITE_STAINED_GLASS_PANE)

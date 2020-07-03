@@ -24,3 +24,10 @@ beeprotectionsuit:
 #
 healing:
   removeanger: true
+
+# Beehive upgrade settings
+#
+#   maximumSize: maximum number of bees a beehive can be upgraded to
+#
+beehiveupgrade:
+  maximumpopulation: 9

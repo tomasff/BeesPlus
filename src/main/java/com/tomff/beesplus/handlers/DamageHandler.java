@@ -41,14 +41,16 @@ public class DamageHandler implements Listener {
             Player player = (Player) event.getEntity();
             PlayerInventory playerInventory = player.getInventory();
 
-            if (Stream.of(playerInventory.getArmorContents()).allMatch(Objects::nonNull)) {
-                if (playerInventory.getHelmet().isSimilar(helmet.getItem()) &&
-                        playerInventory.getChestplate().isSimilar(chestplate.getItem()) &&
-                        playerInventory.getLeggings().isSimilar(leggings.getItem()) &&
-                        playerInventory.getBoots().isSimilar(boots.getItem())) {
+            if (!Stream.of(playerInventory.getArmorContents()).allMatch(Objects::nonNull)) {
+                return;
+            }
 
-                    event.setDamage(reduction * event.getDamage());
-                }
+            if (playerInventory.getHelmet().isSimilar(helmet.getResult()) &&
+                playerInventory.getChestplate().isSimilar(chestplate.getResult()) &&
+                playerInventory.getLeggings().isSimilar(leggings.getResult()) &&
+                playerInventory.getBoots().isSimilar(boots.getResult())) {
+
+                event.setDamage(reduction * event.getDamage());
             }
         }
     }

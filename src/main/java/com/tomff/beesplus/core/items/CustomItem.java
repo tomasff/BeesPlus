@@ -9,13 +9,6 @@ public abstract class CustomItem {
 
     public abstract String[] getRecipe();
     public abstract Map<Character, Material> getIngredients();
-    public abstract String getName();
-    public abstract Material getMaterial();
-
-    public ItemStack getItem() {
-        return new ItemBuilder(getMaterial())
-                .setName(getName())
-                .build();
-    }
+    public abstract ItemStack getResult();
 
 }

@@ -15,7 +15,7 @@ public class Icon {
         this.callback = callback;
     }
 
-    public Consumer<Player>  getCallback() {
+    public Consumer<Player> getCallback() {
         return callback;
     }
 

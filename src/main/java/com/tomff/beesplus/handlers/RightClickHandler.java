@@ -3,7 +3,7 @@ package com.tomff.beesplus.handlers;
 import com.tomff.beesplus.BeesPlus;
 import com.tomff.beesplus.gui.BeeHiveInfo;
 import com.tomff.beesplus.gui.BeeInfo;
-import com.tomff.beesplus.core.gui.GuiManager;
+import com.tomff.beesplus.core.gui.GuiViewTracker;
 import org.bukkit.EntityEffect;
 import org.bukkit.Material;
 import org.bukkit.block.Beehive;
@@ -24,7 +24,7 @@ import java.util.Arrays;
 public class RightClickHandler implements Listener {
 
     private final BeesPlus beesPlus;
-    private final GuiManager guiManager;
+    private final GuiViewTracker guiViewTracker;
 
     private final boolean removeAnger;
 
@@ -40,7 +40,7 @@ public class RightClickHandler implements Listener {
 
     public RightClickHandler(BeesPlus beesPlus) {
         this.beesPlus = beesPlus;
-        this.guiManager = beesPlus.getGuiManager();
+        this.guiViewTracker = beesPlus.getGuiViewTracker();
 
         removeAnger = beesPlus.getConfig().getBoolean("healing.removeanger", true);
     }
@@ -64,7 +64,7 @@ public class RightClickHandler implements Listener {
             if (player.isSneaking() && player.hasPermission("beesplus.bee.view")) {
                 event.setCancelled(true);
 
-                guiManager.openGui(player, new BeeInfo(bee));
+                guiViewTracker.openGui(player, new BeeInfo(bee));
                 return;
             }
 
@@ -99,7 +99,7 @@ public class RightClickHandler implements Listener {
                 event.setCancelled(true);
 
                 Beehive beehive = (Beehive) clickedBlock.getState();
-                guiManager.openGui(player, new BeeHiveInfo(beehive));
+                guiViewTracker.openGui(player, new BeeHiveInfo(beehive));
             }
         }
     }

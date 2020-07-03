@@ -4,8 +4,6 @@ import com.tomff.beesplus.localization.Localization;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 
-import java.util.Arrays;
-
 public enum HoneyLevelIndicators {
 
     EMPTY(0, Material.AIR, null, null, 0),
@@ -28,15 +26,16 @@ public enum HoneyLevelIndicators {
         this.slots = slots;
     }
 
-    public static HoneyLevelIndicators getFromLevel(int level) {
-        return Arrays.stream(values())
-                .filter((levelIndicator) -> levelIndicator.level == level)
-                .findFirst()
-                .orElse(VERY_HIGH);
-    }
+    public static HoneyLevelIndicators getFromLevel(int currentHoneyLvl, int maxHoneyLvl) {
+        float ratio = (float) currentHoneyLvl / (float) maxHoneyLvl;
 
-    public int getLevel() {
-        return level;
+        if (ratio == 0) return EMPTY;
+        if (ratio <= 0.25) return LOW;
+        if (ratio <= 0.50) return MEDIUM;
+        if (ratio <= 0.75) return HIGH;
+        if (ratio <= 1) return VERY_HIGH;
+
+        return EMPTY;
     }
 
     public ChatColor getColor() {

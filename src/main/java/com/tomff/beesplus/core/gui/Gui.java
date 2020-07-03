@@ -30,6 +30,10 @@ public abstract class Gui {
         }
     }
 
+    public boolean hasIcon(int slot) {
+        return icons.containsKey(slot);
+    }
+
     public Icon getIcon(int slot) {
         return icons.get(slot);
     }
