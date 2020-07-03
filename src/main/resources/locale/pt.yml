@@ -77,3 +77,14 @@ bee_protection_helmet: "&6Proteção contra abelhas"
 bee_protection_chestplate: "&6Proteção contra abelhas"
 bee_protection_leggings: "&6Proteção contra abelhas"
 bee_protection_boots: "&6Proteção contra abelhas"
+
+###################
+# Beehive upgrade item
+###################
+beehive_upgrade_item_name: "&6Melhorar Colmeia"
+
+# Use || to a create a new line
+beehive_upgrade_item_lore: "&7População de abelhas: &a+3||&8(Clique direito para user)"
+
+beehive_upgrade_success: "&aColmeia melhorada! Nova população: &7%beesno%&a abelhas"
+beehive_upgrade_max: "&cErro: Esta colmeia atingiu a população máxima permitida!"
