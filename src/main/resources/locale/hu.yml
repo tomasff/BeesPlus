@@ -83,3 +83,14 @@ bee_protection_helmet: "&6Méh Védelmi Sisak"
 bee_protection_chestplate: "&6Méh Védelmi Mellvért"
 bee_protection_leggings: "&6Méh Védelmi Lábszárvédő"
 bee_protection_boots: "&6Méh Védelmi Csizma"
+
+###################
+# Méhkas fejlesztő eszköz
+###################
+beehive_upgrade_item_name: "&6Méhkas fejlesztés"
+
+# Használd a || jelzést, hogy elkészíts egy új sort.
+beehive_upgrade_item_lore: "&7Méh kapacitás: &a+3||&8(Jobb klikk, hogy használd)"
+
+beehive_upgrade_success: "&aMéhkas felfejlesztve! Új populáció: &7%beesno%&a méh"
+beehive_upgrade_max: "&cHiba: Ez a méhkas elérte a megengedett maximum populációt!"
