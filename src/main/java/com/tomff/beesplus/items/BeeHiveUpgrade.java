@@ -103,6 +103,10 @@ public class BeeHiveUpgrade extends CustomItem implements Listener {
 
                 Beehive beehive = (Beehive) clickedBlock.getState();
 
+                if (!player.hasPermission("beesplus.beehive.upgrade")) {
+                    return;
+                }
+
                 if (beehive.getMaxEntities() >= maxPopulation) {
                     Localization.sendMessage(player, Localization.BEEHIVE_UPGRADE_MAX);
                     player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 2, 2);
