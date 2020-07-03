@@ -7,6 +7,7 @@ import com.tomff.beesplus.core.items.CustomItemManager;
 import com.tomff.beesplus.core.migrations.AddField;
 import com.tomff.beesplus.core.migrations.Migration;
 import com.tomff.beesplus.core.migrations.MigrationsExecutor;
+import com.tomff.beesplus.handlers.BeehiveHandler;
 import com.tomff.beesplus.handlers.DamageHandler;
 import com.tomff.beesplus.handlers.RightClickHandler;
 import com.tomff.beesplus.items.*;
@@ -36,6 +37,7 @@ public class BeesPlus extends JavaPlugin {
         customItemManager = new CustomItemManager(this);
 
         getServer().getPluginManager().registerEvents(new GuiHandler(this), this);
+        getServer().getPluginManager().registerEvents(new BeehiveHandler(), this);
         getServer().getPluginManager().registerEvents(new RightClickHandler(this), this);
 
         if (!loadLocale()) {
