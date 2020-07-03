@@ -12,7 +12,7 @@ import java.util.Map;
 public class MigrationsExecutor {
     private int latestVersion;
 
-    private Map<Integer, Migration> migrations;
+    private Map<Integer, Operation[]> migrations;
     private File migrationFileRegistry;
     private YamlConfiguration yaml;
 
@@ -26,8 +26,8 @@ public class MigrationsExecutor {
         this.latestVersion = 0;
     }
 
-    public void addMigration(int version, Migration migration) {
-        migrations.put(version, migration);
+    public void addMigration(int version, Operation... operations) {
+        migrations.put(version, operations);
 
         if (version > latestVersion) {
             this.latestVersion = version;
@@ -62,6 +62,7 @@ public class MigrationsExecutor {
 
     public void setCurrentMigration(int version) {
         yaml.set("migration", version);
+
         try {
             yaml.save(migrationFileRegistry);
         } catch (IOException e) {
@@ -99,8 +100,8 @@ public class MigrationsExecutor {
         return true;
     }
 
-    private void performMigration(Migration migration) {
-        for(Operation operation : migration.getOperations()) {
+    private void performMigration(Operation[] operations) {
+        for(Operation operation : operations) {
             try {
                 operation.execute();
             } catch (IOException e) {

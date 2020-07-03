@@ -6,21 +6,21 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 
-public class AddField implements Operation {
+public class AddFields implements Operation {
     private File file;
+    private Field[] fields;
 
-    private String fieldPath;
-    private Object fieldValue;
-
-    public AddField(String filePath, String fieldPath, Object fieldValue) {
+    public AddFields(String filePath, Field[] fields) {
         file = new File(BASE_PATH, filePath);
-
-        this.fieldPath = fieldPath;
-        this.fieldValue = fieldValue;
+        this.fields = fields;
     }
 
     @Override
     public void execute() throws IOException {
+        if (!file.exists()) {
+            return;
+        }
+
         YamlConfiguration config = new YamlConfiguration();
 
         try {
@@ -29,7 +29,10 @@ public class AddField implements Operation {
             e.printStackTrace();
         }
 
-        config.set(fieldPath, fieldValue);
+        for (Field field : fields) {
+            config.set(field.getPath(), field.getValue());
+        }
+
         config.save(file);
     }
 }

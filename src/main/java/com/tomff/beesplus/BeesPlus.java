@@ -4,8 +4,8 @@ import com.tomff.beesplus.core.UpdateChecker;
 import com.tomff.beesplus.core.gui.GuiHandler;
 import com.tomff.beesplus.core.gui.GuiViewTracker;
 import com.tomff.beesplus.core.items.CustomItemManager;
-import com.tomff.beesplus.core.migrations.AddField;
-import com.tomff.beesplus.core.migrations.Migration;
+import com.tomff.beesplus.core.migrations.AddFields;
+import com.tomff.beesplus.core.migrations.Field;
 import com.tomff.beesplus.core.migrations.MigrationsExecutor;
 import com.tomff.beesplus.handlers.BeehiveHandler;
 import com.tomff.beesplus.handlers.DamageHandler;
@@ -25,8 +25,6 @@ public class BeesPlus extends JavaPlugin {
 
     private GuiViewTracker guiViewTracker;
     private CustomItemManager customItemManager;
-
-    private LocalizationWrapper localizationWrapper;
 
     @Override
     public void onEnable() {
@@ -63,7 +61,7 @@ public class BeesPlus extends JavaPlugin {
 
     private boolean loadLocale() {
         String locale = getConfig().getString("locale", Locale.ENGLISH.toLanguageTag());
-        localizationWrapper = new LocalizationWrapper(this, "locale");
+        LocalizationWrapper localizationWrapper = new LocalizationWrapper(this, "locale");
 
         try {
             YamlConfiguration localeYamlFile = localizationWrapper.getLocale(locale);
@@ -85,8 +83,27 @@ public class BeesPlus extends JavaPlugin {
     private void performMigrations() {
         MigrationsExecutor migrationsExecutor = new MigrationsExecutor(this);
 
-        migrationsExecutor.addMigration(1, new Migration()
-                .add(new AddField("config.yml", "beehiveupgrade.maximumpopulation", 9))
+        Field[] beehiveUpgradeTranslation = new Field[] {
+                new Field("beehive_upgrade_item_name", "&6Beehive Upgrade"),
+                new Field("beehive_upgrade_item_lore", "&7Bee capacity: &a+3||&8(Right click to use)"),
+                new Field("beehive_upgrade_success", "&aBeehive upgraded! New population: &7%beesno%&a bees"),
+                new Field("beehive_upgrade_max", "&cError: This beehive has reached the maximum population allowed!")
+        };
+
+        migrationsExecutor.addMigration(1,
+                new AddFields("config.yml", new Field[] {
+                        new Field("beehiveupgrade.maximumpopulation", 9)
+                }),
+                new AddFields("locale/en.yml", beehiveUpgradeTranslation),
+                new AddFields("locale/fr.yml", beehiveUpgradeTranslation),
+                new AddFields("locale/hu.yml", beehiveUpgradeTranslation),
+                new AddFields("locale/zh_cn.yml", beehiveUpgradeTranslation),
+                new AddFields("locale/pt.yml", new Field[] {
+                        new Field("beehive_upgrade_item_name", "&6Melhorar Colmeia"),
+                        new Field("beehive_upgrade_item_lore", "&7População de abelhas: &a+3||&8(Clique direito para usar)"),
+                        new Field("beehive_upgrade_success", "&aColmeia melhorada! Nova população: &7%beesno%&a abelhas"),
+                        new Field("beehive_upgrade_max", "&cErro: Esta colmeia atingiu a população máxima permitida!")
+                })
         );
 
         migrationsExecutor.migrate();
