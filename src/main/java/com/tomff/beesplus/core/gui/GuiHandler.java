@@ -8,19 +8,15 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.UUID;
 import java.util.function.Consumer;
 
 public class GuiHandler implements Listener {
-
-    private final BeesPlus beesPlus;
     private final GuiViewTracker guiViewTracker;
 
     public GuiHandler(BeesPlus beesPlus) {
-        this.beesPlus = beesPlus;
         this.guiViewTracker = beesPlus.getGuiViewTracker();
     }
 
