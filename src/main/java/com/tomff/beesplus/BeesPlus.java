@@ -20,7 +20,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
 import java.util.Locale;
-import java.util.concurrent.Callable;
 
 public class BeesPlus extends JavaPlugin {
 
