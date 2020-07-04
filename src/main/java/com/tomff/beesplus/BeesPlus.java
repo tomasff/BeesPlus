@@ -102,7 +102,12 @@ public class BeesPlus extends JavaPlugin {
                 }),
                 new AddFields("locale/en.yml", beehiveUpgradeTranslation),
                 new AddFields("locale/fr.yml", beehiveUpgradeTranslation),
-                new AddFields("locale/hu.yml", beehiveUpgradeTranslation),
+                new AddFields("locale/hu.yml", new Field[] {
+                        new Field("beehive_upgrade_item_name", "&6Méhkas fejlesztés"),
+                        new Field("beehive_upgrade_item_lore", "&7Méh kapacitás: &a+3||&8(Jobb klikk, hogy használd)"),
+                        new Field("beehive_upgrade_success", "&aMéhkas felfejlesztve! Új populáció: &7%beesno%&a méh"),
+                        new Field("beehive_upgrade_max", "&cHiba: Ez a méhkas elérte a megengedett maximum populációt!")
+                }),
                 new AddFields("locale/zh_cn.yml", new Field[] {
                         new Field("beehive_upgrade_item_name", "&6蜂巢升级"),
                         new Field("beehive_upgrade_item_lore", "&7蜜蜂容量: &a+3||&8(右键单击查看)"),
