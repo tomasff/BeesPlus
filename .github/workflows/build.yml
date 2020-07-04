@@ -28,8 +28,12 @@ jobs:
         release_name: Release ${{ github.ref }}
         draft: true
         prerelease: false
-    - name: Upload release artifact
-      id: upload_release_artifact
-      uses: actions/upload-artifact@v2.0.1
+    - name: Upload release asset
+      id: upload_release_asset
+      uses: actions/upload-release-asset@v1.0.2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        path: ${{ github.workspace }}/target/BeesPlus-*.jar
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ${{ github.workspace }}/target/BeesPlus-*.jar
+        asset_content_type: application/java-archive
