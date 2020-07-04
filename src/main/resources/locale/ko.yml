@@ -1,0 +1,90 @@
+####################
+# Yes or no
+####################
+text_yes: "&a네"
+text_no: "&c아니요"
+
+###################
+# Beehive GUI
+###################
+beehive_info_gui_title: "&8벌집 정보"
+
+beehive_info_gui_honey_capacity: "&f꿀 용량"
+
+beehive_info_gui_honey_capacity_desc: "&a용량: &7%current%/%maximum%"
+
+beehive_info_gui_bee_capacity: "&f벌 용량"
+
+beehive_info_gui_bee_capacity_desc: "&a용량: &7%current%/%maximum% 벌"
+
+beehive_info_gui_sedated: "&a진정제"
+beehive_info_gui_not_sedated: "&c진정제 없음"
+
+beehive_info_gui_flower: "&f꽃"
+
+# Use || to a create a new line
+beehive_info_gui_no_target_flower_desc: "&a이 벌집은 ||&a설정된 꽃이 없습니다!"
+
+honey_low: "적음"
+honey_medium: "중간"
+honey_high: "많음"
+honey_very_high: "매우 많음"
+
+###################
+# Bee GUI
+###################
+bee_info_gui_title: "&8벌 정보"
+
+bee_info_gui_age: "&f나이"
+bee_info_gui_age_adult: "&a어른"
+bee_info_gui_age_baby: "&a아기"
+
+bee_info_gui_anger: "&f화남"
+
+# Use %level% as a placeholder for the bee's anger level
+bee_info_gui_anger_level_desc: "&a화남 레벨: &7%level%"
+
+bee_info_gui_hive_location: "&f벌집 위치"
+
+# Use || to a create a new line
+bee_info_gui_no_hive_desc: "&a이 벌은 ||&a벌집을 가지고 있지 않습니다!"
+
+bee_info_gui_ride: "&f탑승"
+bee_info_gui_ride_no_permission: "&c벌을 탈 수 있는 권한이 없습니다!"
+bee_info_gui_ride_angry: "&c화난 벌을 탈 수 없습니다!"
+bee_info_gui_ride_already: "&c누군가 이미 이 벌을 타고 있습니다!"
+bee_info_gui_ride_too_far: "&c벌을 타기에는 거리가 너무 멉니다!"
+
+bee_info_gui_has_stung: "&f찌르기?"
+bee_info_gui_has_nectar: "&f꿀?"
+
+bee_info_gui_health: "&f체력"
+
+# Use %health% to represent the bee's health
+bee_info_gui_health_desc: "&a체력: &7%health% ❤"
+
+###################
+# Riding a bee title
+# Use %name% as a placeholder for the player's name
+###################
+ride_bee_title: "&6벌에 탑승하였습니다."
+ride_bee_subtitle: "&6이 벌의 이름은 &8%name%&6!"
+
+###################
+# Protection suit name
+###################
+bee_protection_helmet: "&6벌 보호 투구"
+bee_protection_chestplate: "&6벌 보호 흉갑"
+bee_protection_leggings: "&6벌 보호 바지"
+bee_protection_boots: "&6벌 보호 부츠"
+
+###################
+# Beehive upgrade item
+###################
+beehive_upgrade_item_name: "&6벌집 업그레이드"
+
+# Use || to a create a new line
+beehive_upgrade_item_lore: "&7벌 용량: &a+3||&8(우클릭으로 사용)"
+
+beehive_upgrade_success: "&a벌집이 업그레이드 되었습니다! 새로운 벌 수용량: &7%beesno%&a 마리"
+beehive_upgrade_max: "&c에러: 이 벌집은 수용량 최고치에 도달하였습니다!"
