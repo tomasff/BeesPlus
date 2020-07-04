@@ -103,7 +103,12 @@ public class BeesPlus extends JavaPlugin {
                 new AddFields("locale/en.yml", beehiveUpgradeTranslation),
                 new AddFields("locale/fr.yml", beehiveUpgradeTranslation),
                 new AddFields("locale/hu.yml", beehiveUpgradeTranslation),
-                new AddFields("locale/zh_cn.yml", beehiveUpgradeTranslation),
+                new AddFields("locale/zh_cn.yml", new Field[] {
+                        new Field("beehive_upgrade_item_name", "&6蜂巢升级"),
+                        new Field("beehive_upgrade_item_lore", "&7蜜蜂容量: &a+3||&8(右键单击查看)"),
+                        new Field("beehive_upgrade_success", "&a蜂巢升级! 新移入: &7%beesno%&a 蜜蜂"),
+                        new Field("beehive_upgrade_max", "&c错误：此蜂箱已达到允许的最大数量!")
+                }),
                 new AddFields("locale/pt.yml", new Field[] {
                         new Field("beehive_upgrade_item_name", "&6Melhorar Colmeia"),
                         new Field("beehive_upgrade_item_lore", "&7População de abelhas: &a+3||&8(Clique direito para usar)"),

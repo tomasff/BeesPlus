@@ -87,10 +87,10 @@ bee_protection_boots: "&6蜜蜂保护靴"
 ###################
 # Beehive upgrade item
 ###################
-beehive_upgrade_item_name: "&6Beehive Upgrade"
+beehive_upgrade_item_name: "&6蜂巢升级"
 
 # Use || to a create a new line
-beehive_upgrade_item_lore: "&7Bee capacity: &a+3||&8(Right click to use)"
+beehive_upgrade_item_lore: "&7蜜蜂容量: &a+3||&8(右键单击查看)"
 
-beehive_upgrade_success: "&aBeehive upgraded! New population: &7%beesno%&a bees"
-beehive_upgrade_max: "&cError: This beehive has reached the maximum population allowed!"
+beehive_upgrade_success: "&a蜂巢升级! 新移入: &7%beesno%&a 蜜蜂"
+beehive_upgrade_max: "&c错误：此蜂箱已达到允许的最大数量!"
