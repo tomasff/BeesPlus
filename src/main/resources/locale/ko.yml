@@ -86,5 +86,5 @@ beehive_upgrade_item_name: "&6벌집 업그레이드"
 # Use || to a create a new line
 beehive_upgrade_item_lore: "&7벌 용량: &a+3||&8(우클릭으로 사용)"
 
-beehive_upgrade_success: "&a벌집이 업그레이드 되었습니다! 새로운 벌 수용량: &7%beesno%& 마리"
+beehive_upgrade_success: "&a벌집이 업그레이드 되었습니다! 새로운 벌 수용량: &7%beesno%&a 마리"
 beehive_upgrade_max: "&c에러: 이 벌집은 수용량 최고치에 도달하였습니다!"
