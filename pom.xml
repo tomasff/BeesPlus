@@ -6,7 +6,7 @@
 
     <groupId>com.tomff.beesplus</groupId>
     <artifactId>BeesPlus</artifactId>
-    <version>1.5</version>
+    <version>1.5.1</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,6 +19,10 @@
         <repository>
             <id>CodeMC</id>
             <url>https://repo.codemc.org/repository/maven-public</url>
+        </repository>
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
     </repositories>
 
