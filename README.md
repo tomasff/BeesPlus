@@ -2,6 +2,7 @@
     <img src="static/header.png" alt="Bees+"/>
 </p>
 
+![](https://github.com/tomasff/BeesPlus/workflows/Build/badge.svg)
 ![Java](https://img.shields.io/badge/Java-8%2B-blue)
 ![Spigot Downloads](https://img.shields.io/spiget/downloads/77224)
 [![CodeFactor](https://www.codefactor.io/repository/github/tomasff/beesplus/badge)](https://www.codefactor.io/repository/github/tomasff/beesplus)
