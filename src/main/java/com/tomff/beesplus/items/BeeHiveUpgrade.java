@@ -24,8 +24,7 @@ import org.bukkit.persistence.PersistentDataType;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BeeHiveUpgrade extends CustomItem implements Listener {
-
+public class BeeHiveUpgrade implements CustomItem, Listener {
     private NamespacedKey upgradeKey;
     private int maxPopulation;
 
@@ -34,7 +33,6 @@ public class BeeHiveUpgrade extends CustomItem implements Listener {
         maxPopulation = beesPlus.getConfig().getInt("beehiveupgrade.maximumpopulation", 9);
     }
 
-    @Override
     public String[] getRecipe() {
         return new String[] {
                 "CCC",
@@ -43,7 +41,6 @@ public class BeeHiveUpgrade extends CustomItem implements Listener {
         };
     }
 
-    @Override
     public Map<Character, Material> getIngredients() {
         Map<Character, Material> ingredients = new HashMap<>();
 
@@ -53,7 +50,6 @@ public class BeeHiveUpgrade extends CustomItem implements Listener {
         return ingredients;
     }
 
-    @Override
     public ItemStack getResult() {
         return new ItemBuilder(Material.HONEYCOMB)
                 .setName(Localization.get(Localization.BEEHIVE_UPGRADE_ITEM_NAME))

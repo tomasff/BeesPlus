@@ -9,8 +9,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BeeProtectionLeggings extends CustomItem {
-    @Override
+public class BeeProtectionLeggings implements CustomItem {
     public String[] getRecipe() {
         return new String[] {
                 "SSS",
@@ -19,7 +18,6 @@ public class BeeProtectionLeggings extends CustomItem {
         };
     }
 
-    @Override
     public Map<Character, Material> getIngredients() {
         Map<Character, Material> ingredients = new HashMap<>();
 
@@ -29,7 +27,6 @@ public class BeeProtectionLeggings extends CustomItem {
         return ingredients;
     }
 
-    @Override
     public ItemStack getResult() {
         return new ItemBuilder(Material.CHAINMAIL_LEGGINGS)
                 .setName(Localization.get(Localization.BEE_PROTECTION_LEGGINGS))
