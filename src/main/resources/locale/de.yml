@@ -1,0 +1,90 @@
+####################
+# Yes or no
+####################
+text_yes: "&aJa"
+text_no: "&cNein"
+
+###################
+# Beehive GUI
+###################
+beehive_info_gui_title: "&8Bienenstockinformationen"
+
+beehive_info_gui_honey_capacity: "&fHonig-Lager"
+
+beehive_info_gui_honey_capacity_desc: "&aKapazität: &7%current%/%maximum%"
+
+beehive_info_gui_bee_capacity: "&fBienenwohnraum"
+
+beehive_info_gui_bee_capacity_desc: "&aKapazität: &7%current%/%maximum% Bienen"
+
+beehive_info_gui_sedated: "&aSediert"
+beehive_info_gui_not_sedated: "&cNicht sediert"
+
+beehive_info_gui_flower: "&fBlume"
+
+# Use || to a create a new line
+beehive_info_gui_no_target_flower_desc: "&aDieser Bienenstock hat||&anoch keine Zielblume!"
+
+honey_low: "Wenig"
+honey_medium: "Mittel"
+honey_high: "Viel"
+honey_very_high: "Sehr Viel"
+
+###################
+# Bee GUI
+###################
+bee_info_gui_title: "&8Bienen-Info"
+
+bee_info_gui_age: "&fAlter"
+bee_info_gui_age_adult: "&aErwachsen"
+bee_info_gui_age_baby: "&aBaby"
+
+bee_info_gui_anger: "&fWut"
+
+# Use %level% as a placeholder for the bee's anger level
+bee_info_gui_anger_level_desc: "&aWut-level: &7%level%"
+
+bee_info_gui_hive_location: "&fBienenstock-Ort"
+
+# Use || to a create a new line
+bee_info_gui_no_hive_desc: "&aDiese Biene hat||&anoch keinen Stock!"
+
+bee_info_gui_ride: "&fReiten"
+bee_info_gui_ride_no_permission: "&cDu hast nicht die Erlaubnis auf Bienen zu reiten!"
+bee_info_gui_ride_angry: "&cDu kannst keine wütenden Bienen reiten!"
+bee_info_gui_ride_already: "&cDiese Biene ist bereits besetzt!"
+bee_info_gui_ride_too_far: "&cDu bist zu weit von der Biene entfernt!"
+
+bee_info_gui_has_stung: "&fHat gestochen?"
+bee_info_gui_has_nectar: "&fHat Nektar?"
+
+bee_info_gui_health: "&fGesundheit"
+
+# Use %health% to represent the bee's health
+bee_info_gui_health_desc: "&a&7%health% ❤"
+
+###################
+# Riding a bee title
+# Use %name% as a placeholder for the player's name
+###################
+ride_bee_title: "&6Du reitest nun"
+ride_bee_subtitle: "&6eine Biene, &8%name%&6!"
+
+###################
+# Protection suit name
+###################
+bee_protection_helmet: "&6Bienenschutzhelm"
+bee_protection_chestplate: "&6Bienenschutzhemd"
+bee_protection_leggings: "&6Bienenschutzhose"
+bee_protection_boots: "&6Bienenschutzschuhe"
+
+###################
+# Beehive upgrade item
+###################
+beehive_upgrade_item_name: "&6Bienenstock Upgrade"
+
+# Use || to a create a new line
+beehive_upgrade_item_lore: "&7Bienenwohnraum: &a+3||&8(Zum verwenden rechtsklicken)"
+
+beehive_upgrade_success: "&aBienenstock verbessert! Neuer Wohnraum: &7%beesno%&a Bienen"
+beehive_upgrade_max: "&cFehler: Dieser Bienenstock hat bereits den maximalen Wohnraum erreicht!"
