@@ -87,10 +87,10 @@ bee_protection_boots: "&6Bottes de protection des abeilles"
 ###################
 # Beehive upgrade item
 ###################
-beehive_upgrade_item_name: "&6Beehive Upgrade"
+beehive_upgrade_item_name: "&6Amélioration de la ruche"
 
 # Use || to a create a new line
-beehive_upgrade_item_lore: "&7Bee capacity: &a+3||&8(Right click to use)"
+beehive_upgrade_item_lore: "&7Capacité d'abeilles: &a+3||&8(Cliquez à droite pour l'utiliser)"
 
-beehive_upgrade_success: "&aBeehive upgraded! New population: &7%beesno%&a bees"
-beehive_upgrade_max: "&cError: This beehive has reached the maximum population allowed!"
+beehive_upgrade_success: "&aLa ruche a été améliorée ! Nouvelle population de: &7%beesno%&a abeilles"
+beehive_upgrade_max: "&cErreur : Cette ruche a atteint sa capacité maximale !"
