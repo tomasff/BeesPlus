@@ -103,24 +103,28 @@ public class BeeHiveUpgrade implements CustomItem, Listener {
                     return;
                 }
 
-                if (beehive.getMaxEntities() >= maxPopulation) {
-                    Localization.sendMessage(player, Localization.BEEHIVE_UPGRADE_MAX);
-                    player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 2, 2);
-
-                    return;
-                }
-
-                beehive.setMaxEntities(beehive.getMaxEntities() + 3);
-                beehive.update();
-
-                Localization.sendMessage(player, Localization.BEEHIVE_UPGRADE_SUCCESS, beehive.getMaxEntities());
-                player.playSound(player.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 2, 2);
-
-                ItemStack upgradeAmountRemove = handItem.clone();
-                upgradeAmountRemove.setAmount(1);
-
-                player.getInventory().removeItem(upgradeAmountRemove);
+                upgradeBeehive(player, beehive, handItem);
             }
         }
+    }
+
+    public void upgradeBeehive(Player player, Beehive beehive, ItemStack handItem) {
+        if (beehive.getMaxEntities() >= maxPopulation) {
+            Localization.sendMessage(player, Localization.BEEHIVE_UPGRADE_MAX);
+            player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 2, 2);
+
+            return;
+        }
+
+        beehive.setMaxEntities(beehive.getMaxEntities() + 3);
+        beehive.update();
+
+        Localization.sendMessage(player, Localization.BEEHIVE_UPGRADE_SUCCESS, beehive.getMaxEntities());
+        player.playSound(player.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 2, 2);
+
+        ItemStack upgradeAmountRemove = handItem.clone();
+        upgradeAmountRemove.setAmount(1);
+
+        player.getInventory().removeItem(upgradeAmountRemove);
     }
 }
