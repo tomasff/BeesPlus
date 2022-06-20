@@ -14,6 +14,7 @@ import com.tomff.beesplus.items.*;
 import com.tomff.beesplus.localization.Localization;
 import com.tomff.beesplus.localization.LocalizationLoader;
 import org.bstats.bukkit.Metrics;
+import org.bstats.charts.SimplePie;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,6 +26,8 @@ public class BeesPlus extends JavaPlugin {
 
     private static final int RESOURCE_ID = 77224;
     private static final int PLUGIN_ID = 7065;
+
+    private static final String LANGUAGE_CHART_ID = "language_used";
 
     private GuiViewTracker guiViewTracker;
     private CustomItemManager customItemManager;
@@ -62,7 +65,7 @@ public class BeesPlus extends JavaPlugin {
     private void setupMetrics() {
         Metrics metrics = new Metrics(this, PLUGIN_ID);
 
-        metrics.addCustomChart(new Metrics.SimplePie("language_used",
+        metrics.addCustomChart(new SimplePie(LANGUAGE_CHART_ID,
                 () -> getConfig().getString("locale", Locale.ENGLISH.toLanguageTag())));
     }
 
