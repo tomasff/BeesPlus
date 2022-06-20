@@ -8,17 +8,17 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 
-public class LocalizationWrapper {
+public class LocalizationLoader {
 
     private final BeesPlus beesPlus;
     private final String basePath;
 
-    public LocalizationWrapper(BeesPlus beesPlus, String path) {
+    public LocalizationLoader(BeesPlus beesPlus, String path) {
         this.beesPlus = beesPlus;
         this.basePath = path;
     }
 
-    public YamlConfiguration getLocale(String locale) throws IOException, InvalidConfigurationException {
+    public YamlConfiguration load(String locale) throws IOException, InvalidConfigurationException {
         String path = Paths.get(basePath, locale + ".yml").toString();
         File localeFile = new File(beesPlus.getDataFolder(), path);
 

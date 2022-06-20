@@ -12,7 +12,7 @@ import com.tomff.beesplus.handlers.DamageHandler;
 import com.tomff.beesplus.handlers.RightClickHandler;
 import com.tomff.beesplus.items.*;
 import com.tomff.beesplus.localization.Localization;
-import com.tomff.beesplus.localization.LocalizationWrapper;
+import com.tomff.beesplus.localization.LocalizationLoader;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -22,6 +22,9 @@ import java.io.IOException;
 import java.util.Locale;
 
 public class BeesPlus extends JavaPlugin {
+
+    private static final int RESOURCE_ID = 77224;
+    private static final int PLUGIN_ID = 7065;
 
     private GuiViewTracker guiViewTracker;
     private CustomItemManager customItemManager;
@@ -45,8 +48,11 @@ public class BeesPlus extends JavaPlugin {
 
         registerItems();
         setupMetrics();
+        setupUpdateChecker();
+    }
 
-        new UpdateChecker(this, 77224).getVersion(version -> {
+    private void setupUpdateChecker() {
+        new UpdateChecker(this, RESOURCE_ID).getVersion(version -> {
             if (!this.getDescription().getVersion().equalsIgnoreCase(version)) {
                 getLogger().info("A new update is available: BeesPlus " + version);
             }
@@ -54,7 +60,7 @@ public class BeesPlus extends JavaPlugin {
     }
 
     private void setupMetrics() {
-        Metrics metrics = new Metrics(this, 7065);
+        Metrics metrics = new Metrics(this, PLUGIN_ID);
 
         metrics.addCustomChart(new Metrics.SimplePie("language_used",
                 () -> getConfig().getString("locale", Locale.ENGLISH.toLanguageTag())));
@@ -67,10 +73,10 @@ public class BeesPlus extends JavaPlugin {
 
     private boolean loadLocale() {
         String locale = getConfig().getString("locale", Locale.ENGLISH.toLanguageTag());
-        LocalizationWrapper localizationWrapper = new LocalizationWrapper(this, "locale");
+        LocalizationLoader localizationLoader = new LocalizationLoader(this, "locale");
 
         try {
-            YamlConfiguration localeYamlFile = localizationWrapper.getLocale(locale);
+            YamlConfiguration localeYamlFile = localizationLoader.load(locale);
             Localization.load(localeYamlFile);
         } catch (IOException e) {
             getLogger().severe("Invalid locale! Please choose a valid locale.");
@@ -133,7 +139,7 @@ public class BeesPlus extends JavaPlugin {
 
         boolean isProtectionSuitEnabled = getConfig().getBoolean("beeprotectionsuit.enabled", true);
 
-        if(isProtectionSuitEnabled) {
+        if (isProtectionSuitEnabled) {
             customItemManager.registerCustomItem("protection_boots", new BeeProtectionBoots());
             customItemManager.registerCustomItem("protection_leggings", new BeeProtectionLeggings());
             customItemManager.registerCustomItem("protection_chestplate", new BeeProtectionChestplate());

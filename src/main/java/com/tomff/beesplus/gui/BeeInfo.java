@@ -6,6 +6,7 @@ import com.tomff.beesplus.core.items.ItemBuilder;
 import com.tomff.beesplus.localization.Localization;
 import org.bukkit.*;
 import org.bukkit.entity.Bee;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 public class BeeInfo extends Gui {
@@ -24,6 +25,44 @@ public class BeeInfo extends Gui {
     @Override
     public String getTitle() {
         return Localization.get(Localization.BEE_INFO_GUI_TITLE);
+    }
+
+    public void rideBee(Player player) {
+        double distance = player.getLocation().distance(bee.getLocation());
+
+        if (!player.hasPermission("beesplus.bee.ride")) {
+            player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 2, 2);
+            Localization.sendMessage(player, Localization.BEE_INFO_GUI_RIDE_NO_PERMISSION);
+
+            return;
+        }
+
+        if (bee.getAnger() > 0) {
+            player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 2, 2);
+            Localization.sendMessage(player, Localization.BEE_INFO_GUI_RIDE_ANGRY);
+
+            return;
+        }
+
+        if (distance <= 6) {
+            if (bee.getPassengers().size() >= 1) {
+                Localization.sendMessage(player, Localization.BEE_INFO_GUI_RIDE_ALREADY);
+                return;
+            }
+
+            player.closeInventory();
+
+            bee.addPassenger(player);
+
+            String title = Localization.get(Localization.RIDE_BEE_TITLE, player.getName());
+            String subtitle = Localization.get(Localization.RIDE_BEE_SUBTITLE, player.getName());
+
+            player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_FLAP, 10, 1);
+            player.sendTitle(title, subtitle, 10, 25, 10);
+        } else {
+            player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 2, 2);
+            Localization.sendMessage(player, Localization.BEE_INFO_GUI_RIDE_TOO_FAR);
+        }
     }
 
     @Override
@@ -64,44 +103,7 @@ public class BeeInfo extends Gui {
                 .setName(Localization.get(Localization.BEE_INFO_GUI_RIDE))
                 .build();
 
-        Icon mountIcon = new Icon(mount, (player) -> {
-            double distance = player.getLocation().distance(bee.getLocation());
-
-            if (!player.hasPermission("beesplus.bee.ride")) {
-                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 2, 2);
-                Localization.sendMessage(player, Localization.BEE_INFO_GUI_RIDE_NO_PERMISSION);
-
-                return;
-            }
-
-            if (bee.getAnger() > 0) {
-                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 2, 2);
-                Localization.sendMessage(player, Localization.BEE_INFO_GUI_RIDE_ANGRY);
-
-                return;
-            }
-
-            if (distance <= 6) {
-
-                if (bee.getPassengers().size() >= 1) {
-                    Localization.sendMessage(player, Localization.BEE_INFO_GUI_RIDE_ALREADY);
-                    return;
-                }
-
-                player.closeInventory();
-
-                bee.addPassenger(player);
-
-                String title = Localization.get(Localization.RIDE_BEE_TITLE, player.getName());
-                String subtitle = Localization.get(Localization.RIDE_BEE_SUBTITLE, player.getName());
-
-                player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_FLAP, 10, 1);
-                player.sendTitle(title, subtitle, 10, 25, 10);
-            } else {
-                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 2, 2);
-                Localization.sendMessage(player, Localization.BEE_INFO_GUI_RIDE_TOO_FAR);
-            }
-        });
+        Icon mountIcon = new Icon(mount, this::rideBee);
         setIcon(mountIcon, 15);
 
         ItemStack stung = new ItemBuilder(Material.IRON_SWORD)

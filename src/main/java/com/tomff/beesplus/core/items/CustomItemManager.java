@@ -27,6 +27,7 @@ public class CustomItemManager {
 
         NamespacedKey namespacedKey = new NamespacedKey(beesPlus, id);
         ShapedRecipe recipe = new ShapedRecipe(namespacedKey, customItem.getResult());
+
         recipe.shape(customItem.getRecipe());
         customItem.getIngredients().forEach(recipe::setIngredient);
 
