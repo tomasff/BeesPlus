@@ -17,6 +17,7 @@ import org.bstats.bukkit.Metrics;
 import org.bstats.charts.SimplePie;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
@@ -40,9 +41,11 @@ public class BeesPlus extends JavaPlugin {
         guiViewTracker = new GuiViewTracker();
         customItemManager = new CustomItemManager(this);
 
-        getServer().getPluginManager().registerEvents(new GuiHandler(this), this);
-        getServer().getPluginManager().registerEvents(new BeehiveHandler(), this);
-        getServer().getPluginManager().registerEvents(new RightClickHandler(this), this);
+        PluginManager pluginManager = getServer().getPluginManager();
+
+        pluginManager.registerEvents(new GuiHandler(this), this);
+        pluginManager.registerEvents(new BeehiveHandler(), this);
+        pluginManager.registerEvents(new RightClickHandler(this), this);
 
         if (!loadLocale()) {
             getServer().getPluginManager().disablePlugin(this);
