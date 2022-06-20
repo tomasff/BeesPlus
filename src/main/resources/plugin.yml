@@ -2,7 +2,7 @@ name: BeesPlus
 author: Attlantiz
 version: ${project.version}
 main: com.tomff.beesplus.BeesPlus
-api-version: 1.15
+api-version: 1.18
 permissions:
   beesplus.bee.view:
     default: op
@@ -14,4 +14,3 @@ permissions:
     default: op
   beesplus.beehive.upgrade:
     default: op
-
